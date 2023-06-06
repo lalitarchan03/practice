@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS For Beginners</title>
+    
+  </head>
+  <body>
+    <header>
+      <h1>JS For Beginners</h1>
+    </header>
+
+    <section class="container" style="border: 2px solid black; background-color: gray; height: 500px; width: 500px;">
+      <form id="my-form">
+        <h1>Add User</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" id="email">
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+
+      <ul id="users"></ul>
+
+      <ul class="items">
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+      </ul>
+    </section>
+    
+    <script>
+    const form = document.querySelector('#my-form');
+    const nInput = document.querySelector('#name');
+    const eInput = document.querySelector('#email');
+    const msg = document.querySelector('.msg');
+    const btn = document.querySelector('.btn');
+    const container = document.querySelector('.container');
+
+    btn.addEventListener('mouseover', (e) => {
+        e.preventDefault();
+        if(nInput.value === '' || eInput.value === '') {
+            // alert('Please fill all the fields!')
+            btn.style.color = 'blue';
+            msg.style.color = 'yellow';
+            msg.innerHTML = 'Please fill all the fields!';
+            setTimeout(() => msg.innerHTML = '', 3000);
+            setTimeout(() => btn.style.color = 'black', 3000);
+        }
+    })
+
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if(nInput.value === '' || eInput.value === '') {
+            alert('Please fill all the fields!');
+        }
+        else{
+            console.log('name: ',nInput.value, 'email: ', eInput.value);
+        }
+    })
+
+    container.addEventListener('mouseout', (e) => {
+        e.preventDefault();
+        const h = document.querySelector('h1');
+        h.style.color = 'blue';
+        setTimeout(() => h.style.color = 'black', 5000);
+    })
+
+
+    </script>
+  </body>
+</html>
